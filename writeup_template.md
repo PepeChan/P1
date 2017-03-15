@@ -21,23 +21,23 @@ The goals / steps of this project are the following:
 
 ### Reflection
 
-###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 My pipeline consisted of 9 steps. 
 
-####Step 1
+#### Step 1
 
 First of all I converted the image into an array using numpy. This is needed since the gray_image=cv2.cvtColor(image_of_example, cv2.COLOR_RGB2GRAY) accepts an array.
 
-####Step 2
+#### Step 2
 
 I then converted the array to a grey image by this gray_image=cv2.cvtColor(repic, cv2.COLOR_RGB2GRAY).
 
-####Step 3
+#### Step 3
 
 I then applied a Gaussian Blur to the image, with the definition of a kernel as well. This step was not needed but I wanted to practice all of the steps and still get to something.
 
-####Step 4
+#### Step 4
 
 I then applied the formula for the Canny edges. This step will detect edges in the image after this one has been grayed out and blurred as described above.
 
