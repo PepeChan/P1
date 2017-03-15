@@ -41,15 +41,15 @@ I then applied a Gaussian Blur to the image, with the definition of a kernel as 
 
 I then applied the formula for the Canny edges. This step will detect edges in the image after this one has been grayed out and blurred as described above.
 
-####Step 5
+#### Step 5
 
 As an intermediate but needed step, I created a copy of the image to be superimposed later on. This step is needed because is we keep only the transformation image, we then are not able to see the real image as a background. This may work for the car itself, but not for us and for this example.
 
-####Step 6
+#### Step 6
 
 Because we want to focus the edges image in the area where the lines are, I am then creating a 4-side polygon that embodies the area of interest from the Canny edges image. We will apply the Hough transform to that area only.
 
-####Step 7
+#### Step 7
 
 I am then creating the parameters that will be applied into the Hough transform. In order to draw a single line on the left and right lanes, I modified the lines() function by the use of these values for the parameters:
 
@@ -65,18 +65,18 @@ lines = cv2.HoughLinesP(masked_edges, rho, theta, threshold, np.array([]), min_l
 
 followed by a for loop to iterate over white lines.
 
-####Step 8
+#### Step 8
 
 I finally combined the two images (the anotated and the copied) into one with this criterion:
 
 result = cv2.addWeighted(color_edges, 0.8, line_image, 1, 0)
 
-####Step 9
+#### Step 9
 
 To finish the exercise, I loaded a video (included in the repository as well) that took over the complete procedure abovementioned in a way that the video itself, since is a collection of images, is transformed into the anotated version that was expected.
 
 
-###2. Identify potential shortcomings with your current pipeline
+### 2. Identify potential shortcomings with your current pipeline
 
 
 The shortcoming that I most clearly see is that the values are very sensitive and not every image or video contains lines of the same length and width. This may cause trouble if the input video is of very different nature.
@@ -84,6 +84,6 @@ The shortcoming that I most clearly see is that the values are very sensitive an
 Another drawback is that the transformation algorithm did not account for lines that are not straight. If the lanes are boundaries of a curved road, then the lines procedure we created will not work.
 
 
-###3. Suggest possible improvements to your pipeline
+### 3. Suggest possible improvements to your pipeline
 
 I would suggest, as a first approximation,  procedure that accounted for any typology of road, be it with curves, ups and downs, etc.
